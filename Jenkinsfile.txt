@@ -19,7 +19,7 @@ sh 'mvn clean install -Dv=${BUILD_NUMBER}'
 }
 
 stage('deploy'){
-sh 'sudo cp /var/lib/jenkins/workspace/PipelineDemo/target/Helloworld.war /var/lib/tomcat8/webapps/'
+sh 'cp /var/lib/jenkins/workspace/PipelineDemo/target/Helloworld.war /var/lib/tomcat8/webapps/'
 }
 
 }
