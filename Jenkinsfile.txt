@@ -3,12 +3,12 @@ node{
 stage('checkout')
 
 {
-checkout scm
+checkout scm;
 def prop=readProperties  file: 'propertiesfile'
 echo '${prop}'
 def giturl=prop.GIT_URL
-echo '${giturl}'
-git 'giturl'
+echo 'giturl=${giturl}'
+git '${giturl}'
 
 }
 
