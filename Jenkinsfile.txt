@@ -3,12 +3,16 @@ node{
 stage('checkout')
 
 {
-
-git 'https://github.com/jayanthikr91/Assignment2.git'
+checkout scm
+def prop=readProperties  file: 'propertiesfile'
+echo '${prop}'
+def giturl=prop.GIT_URL
+echo '${giturl}'
+git 'giturl'
 
 }
 
-stage ('mvn clean install command'){
+stage ('build'){
 
 sh 'mvn clean install -Dv=${BUILD_NUMBER}'
 
