@@ -4,7 +4,7 @@ stage('checkout')
 
 {
 checkout scm;
-def prop=readProperties  file: 'propertiesfile'
+def prop=readProperties  file: 'propertiesfile.txt'
 echo "${prop}"
 def giturl=prop.GIT_URL
 echo "giturl=${giturl}"
