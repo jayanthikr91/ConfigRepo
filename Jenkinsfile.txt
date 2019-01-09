@@ -1,8 +1,6 @@
 node{
 
-def mvnHome
-
-stage('Preparation')
+stage('checkout')
 
 {
 
@@ -14,6 +12,10 @@ stage ('mvn clean install command'){
 
 sh 'mvn clean install -Dv=${BUILD_NUMBER}'
 
+}
+
+stage('code analysis'){
+    sh 'mvn sonar:sonar -Dsonar.host.url=http://ec2-18-212-155-18.compute-1.amazonaws.com:9000/ -Dsonar.verbose=true'
 }
 
 
