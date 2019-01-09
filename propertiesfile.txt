@@ -1,1 +1,1 @@
-GIT_URL='https://github.com/jayanthikr91/Assignment2.git'
+GIT_URL=https://github.com/jayanthikr91/Assignment2.git
