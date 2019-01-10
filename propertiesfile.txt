@@ -1,3 +1,4 @@
 GIT_URL=https://github.com/jayanthikr91/Assignment2.git
+MAVEN_CMD=mvn clean package
 MAVEN_SONAR_CMD=mvn sonar:sonar -Dsonar.host.url=
 SONAR_URL=http://3.81.14.111:9000/
