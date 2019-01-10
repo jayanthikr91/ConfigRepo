@@ -27,9 +27,6 @@ stage('code analysis'){
     sh "${url}"
 }
 
-
-}
-
 stage('deploy'){
 sh 'cp /var/lib/jenkins/workspace/PipelineDemo/target/Helloworld.war /var/lib/tomcat8/webapps/'
 }
