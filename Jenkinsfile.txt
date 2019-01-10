@@ -1,10 +1,11 @@
 node{
 
+checkout scm;
+def prop=readProperties  file: 'propertiesfile.txt'
+
 stage('checkout')
 
 {
-checkout scm;
-def prop=readProperties  file: 'propertiesfile.txt'
 echo "${prop}"
 def giturl=prop.GIT_URL
 echo "giturl=${giturl}"
@@ -14,12 +15,14 @@ git "${giturl}"
 
 stage ('build'){
 
-sh 'mvn clean package'
+def buildcmd=prop.MAVEN_CMD
+echo "${buildcmd}"
+sh "${buildcmd}"
 
 }
 
 stage('code analysis'){
-    def prop=readProperties  file: 'propertiesfile.txt'
+    echo "${prop}"
     def mvncmd=prop.MAVEN_SONAR_CMD
     def sonarurl=prop.SONAR_URL
     def url=mvncmd+sonarurl
