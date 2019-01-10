@@ -18,6 +18,18 @@ sh 'mvn clean package'
 
 }
 
+stage('code analysis'){
+    def prop=readProperties  file: 'propertiesfile.txt'
+    def mvncmd=prop.MAVEN_SONAR_CMD
+    def sonarurl=prop.SONAR_URL
+    def url=mvncmd+sonarurl
+    echo "${url}"
+    sh "${url}"
+}
+
+
+}
+
 stage('deploy'){
 sh 'cp /var/lib/jenkins/workspace/PipelineDemo/target/Helloworld.war /var/lib/tomcat8/webapps/'
 }
