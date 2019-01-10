@@ -14,8 +14,11 @@ git "${giturl}"
 
 stage ('build'){
 
-sh 'mvn clean install -Dv=${BUILD_NUMBER}'
+sh 'mvn clean package'
 
+}
+stage('code analysis'){
+    sh 'mvn sonar:sonar -Dsonar.host.url=http://3.82.1.5:9000/ -Dsonar.verbose=true'
 }
 
 stage('deploy'){
