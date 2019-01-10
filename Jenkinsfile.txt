@@ -17,9 +17,6 @@ stage ('build'){
 sh 'mvn clean package'
 
 }
-stage('code analysis'){
-    sh 'mvn sonar:sonar -Dsonar.host.url=http://3.82.1.5:9000/ -Dsonar.verbose=true'
-}
 
 stage('deploy'){
 sh 'cp /var/lib/jenkins/workspace/PipelineDemo/target/Helloworld.war /var/lib/tomcat8/webapps/'
